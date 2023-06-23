@@ -1,0 +1,8 @@
+---
+- name: File Inclusion Playbook
+  hosts: all
+  gather_facts: true
+
+  tasks:
+    - name: Include a File
+      include: file.yml

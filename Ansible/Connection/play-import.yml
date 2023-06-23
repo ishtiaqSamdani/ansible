@@ -1,0 +1,8 @@
+---
+- name: Main Playbook
+  hosts: all
+  gather_facts: true
+
+  tasks:
+    - name: Include a Playbook
+      include_playbook: play-import.yml

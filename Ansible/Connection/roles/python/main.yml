@@ -1,0 +1,19 @@
+---
+- name: Install Python
+  become: yes
+  apt:
+    name:
+      - python3
+    state: present
+
+- name: Conditional Task
+  become: yes
+  debug:
+    msg: "This task will only run if a condition is met"
+  when: my_variable == true
+
+- name: Looping Task
+  become: yes
+  debug:
+    msg: "Loop iteration {{ item }}"
+  loop: "{{ loop_list }}"

@@ -1,0 +1,5 @@
+---
+- name: Install Apache HTTP server (httpd)
+  apt:
+    name: apache2
+    state: present

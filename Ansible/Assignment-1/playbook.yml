@@ -1,0 +1,21 @@
+---
+- name: Install following services using loop
+  hosts: all
+  become: true
+  vars:
+    services:
+      - name: apache2
+        package: apache2
+      - name: maven
+        package: maven
+      - name: java
+        package: openjdk-11-jdk
+      - name: docker
+        package: docker.io
+
+  tasks:
+    - name: Install services
+      apt:
+        name: "{{ item.package }}"
+        state: latest
+      loop: "{{ services }}"

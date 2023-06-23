@@ -1,0 +1,8 @@
+---
+- name: Configure Docker on Amazon Linux
+  hosts: all
+  become: true
+
+  roles:
+    - docker
+    - httpd

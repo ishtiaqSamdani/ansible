@@ -1,0 +1,11 @@
+---
+tasks:
+  - name: Create a Directory
+    file:
+      path: /tmp/example_directory
+      state: directory
+
+  - name: Copy a File
+    copy:x
+      src: files/example.txt
+      dest: /tmp/example_directory/example.txt

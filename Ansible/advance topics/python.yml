@@ -1,0 +1,6 @@
+---
+- name: install python
+  yum:
+    name: python3
+    state: present
+    update_cache: yes

@@ -1,0 +1,19 @@
+---
+- hosts: all
+  become: true
+  tasks:
+    - block:
+        - name: Include Python Tasks
+          include_tasks: python.yml
+      rescue:
+        - name: Handle Exception
+          debug:
+            msg: "An error occurred while including Python tasks."
+
+    - block:
+        - name: Import Git Tasks
+          import_tasks: git.yml
+      rescue:
+        - name: Handle Exception
+          debug:
+            msg: "An error occurred while importing Git tasks."

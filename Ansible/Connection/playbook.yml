@@ -1,0 +1,9 @@
+- name: Install Git, Python
+  hosts: all
+  become: true
+
+  roles:
+    - common
+    - git
+    - python
+

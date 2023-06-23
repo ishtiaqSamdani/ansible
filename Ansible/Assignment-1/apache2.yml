@@ -1,0 +1,24 @@
+- name: Install and configure Apache
+  hosts: all
+  become: true
+  tasks:
+    - name: Install Apache package
+      apt:
+        name: apache2
+        state: present
+
+    - name: Enable Apache service
+      service:
+        name: apache2
+        state: started
+        enabled: true
+
+    - name: apache2 listen on port 8081
+      lineinfile: dest=/etc/apache2/ports.conf regexp="^Listen 80" line="Listen 8081" state=present
+      notify: restart apache2
+
+  handlers:
+    - name: Restart Apache
+      service:
+        name: apache2
+        state: restarted
